@@ -1,0 +1,46 @@
+
+/* Style for HTML body */
+body {
+  font-family: 'Smooch Sans', sans-serif;
+  margin-left: 32px;
+  margin-top: 32px;
+  padding: 0;
+  background-color: rgb(51, 51, 51);
+  color: whitesmoke;
+}
+
+/* Styles for specific HTML elements */
+h1 {
+  color: #333333;
+}
+
+p {
+  font-family: 'Smooch Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 400; /* Applying the specific weight (300) */
+  padding: 5px;
+  margin: 0;
+  border: none;
+}
+
+button {
+  font-family: 'Smooch Sans', sans-serif;
+  font-size: 46px;
+  font-weight: 500;
+  padding: 10px 20px; /* Adjust padding using specific pixel values */
+  width: auto;
+}
+
+.spoiler {
+  display: inline-block; /* or inline */
+  background-color: gray;
+  color: transparent;
+  user-select: none;
+  margin-top: 5px; /* Adjust the top margin as needed */
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.spoiler:hover {
+  background-color: inherit;
+  color: inherit;
+}
