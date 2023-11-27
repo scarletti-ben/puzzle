@@ -1,7 +1,6 @@
 
 /* Style for HTML body */
 body {
-  font-family: 'Smooch Sans', sans-serif;
   margin-left: 32px;
   margin-top: 32px;
   padding: 0;
@@ -15,8 +14,7 @@ h1 {
 }
 
 p {
-  font-family: 'Smooch Sans', sans-serif;
-  font-size: 32px;
+  font-size: 18px;
   font-weight: 300; /* Applying the specific weight (300) */
   padding: 5px;
   margin: 0;
