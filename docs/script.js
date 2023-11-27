@@ -76,7 +76,7 @@ function shuffleDivision() {
 document.addEventListener('DOMContentLoaded', function () {
 
   let container = document.getElementById('core');
-  let division = container.querySelector('.answer');
+  let division = container.querySelector('.clues');
 
   {
 
@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let output = [null, null, null, null];
     let codes = [
-      [true, true],
-      [false, false],
+      [true, false],
+      [true, false],
       [false, false],
       [false, false]
     ];
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let output = [null, null, null, null];
     let codes = [
-      [true, true],
+      [true, false],
       [false, false],
       [false, false],
       [false, false]
@@ -197,12 +197,14 @@ document.addEventListener('DOMContentLoaded', function () {
       addNumber(code, output);
     }
 
-    let sentence = output.join(' ') + emsp + "Exactly one digit is correct and it is in the right place";
+    let sentence = output.join(' ') + emsp + "Exactly one digit is correct but it is in the wrong place";
     let element = document.createElement('p');
     element.textContent = sentence;
     division.appendChild(element);
 
   }
+
+  shuffleDivision()
 
   {
 
