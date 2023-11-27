@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   {
 
     let element = document.createElement('p');
-    element.textContent = 'Answer' + ensp;
+    element.textContent = 'Answer ' + ensp;
 
     let spanElement = document.createElement('span');
     spanElement.className = 'spoiler';
