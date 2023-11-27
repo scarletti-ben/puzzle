@@ -17,7 +17,7 @@ p {
   font-size: 18px;
   font-weight: 300; /* Applying the specific weight (300) */
   padding: 5px;
-  margin: 0;
+  margin-bottom: 5px;
   border: none;
 }
 
