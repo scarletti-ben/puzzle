@@ -17,7 +17,7 @@ h1 {
 p {
   font-family: 'Smooch Sans', sans-serif;
   font-size: 32px;
-  font-weight: 400; /* Applying the specific weight (300) */
+  font-weight: 300; /* Applying the specific weight (300) */
   padding: 5px;
   margin: 0;
   border: none;
