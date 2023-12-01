@@ -28,7 +28,7 @@ pre {
   font-size: var(--default-font-size);
   font-weight: var(--default-font-weight);
   font-family: var(--default-font-family);
-  outline: 1px solid green;
+/*   outline: 1px solid green; */
 }
 
 .inner-container {
@@ -57,8 +57,8 @@ pre {
   width: 100px;
   height: 50px;
   border: none;
-  margin-right: 7px; /* Adjust spacing between buttons */
-  margin-left: 7px; /* Adjust spacing between buttons */
+  margin-right: 14px; /* Adjust spacing between buttons */
+/*   margin-left: 7px; /* Adjust spacing between buttons */ */
   background-color: transparent;
 /*   outline: 3px solid grey; */
 }
@@ -72,8 +72,8 @@ pre {
   height: 50px;
   border: none;
   cursor: pointer;
-  margin-right: 7px; /* Adjust spacing between buttons */
-  margin-left: 7px; /* Adjust spacing between buttons */
+  margin-right: 14px; /* Adjust spacing between buttons */
+/*   margin-left: 7px; /* Adjust spacing between buttons */ */
   background-color: transparent;
   outline: 3px solid grey;
 }
