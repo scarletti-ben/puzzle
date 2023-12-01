@@ -100,7 +100,7 @@ function handleButtonClick(event) {
 
 // Function to change button color when handleButtonClick function called
 function changeColor(button) {
-  const colors = ["transparent", "brown", "forestgreen", "darkcyan", "orange"];
+  const colors = ["transparent", "pink", "mediumseagreen", "mediumturquoise", "sandybrown"];
   const currentBgColor = button.style.backgroundColor || "transparent";
   let currentState = colors.indexOf(currentBgColor);
   button.style.backgroundColor = colors[(currentState + 1) % colors.length];
