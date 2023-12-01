@@ -100,7 +100,13 @@ function handleButtonClick(event) {
 
 // Function to change button color when handleButtonClick function called
 function changeColor(button) {
-  const colors = ["transparent", "pink", "mediumseagreen", "mediumturquoise", "sandybrown"];
+  const colors = [
+    "transparent",
+    "pink",
+    "mediumseagreen",
+    "mediumturquoise",
+    "sandybrown"
+  ];
   const currentBgColor = button.style.backgroundColor || "transparent";
   let currentState = colors.indexOf(currentBgColor);
   button.style.backgroundColor = colors[(currentState + 1) % colors.length];
@@ -115,10 +121,10 @@ function handleCycleButtonClick(event) {
 }
 
 function changeCycle(button) {
-    let currentNumber = parseInt(button.textContent); // Get the current number from the button
-    currentNumber = (currentNumber + 1) % 10; // Increment the number by 1 and ensure it cycles from 0 to 9
-    button.textContent = currentNumber; // Update the button text with the new number
-};
+  let currentNumber = parseInt(button.textContent); // Get the current number from the button
+  currentNumber = (currentNumber + 1) % 10; // Increment the number by 1 and ensure it cycles from 0 to 9
+  button.textContent = currentNumber; // Update the button text with the new number
+}
 
 //--------------------------------------------------
 // Section to Handle Answer and Clue Generation
@@ -215,7 +221,7 @@ function showAnswerContent() {
   buttonContainer.classList.add("button-container");
   innerContainer.appendChild(buttonContainer);
 
-  const answerString = answer.join('');
+  const answerString = answer.join("");
   for (let i = 0; i < answerString.length; i++) {
     const square = document.createElement("button");
     square.classList.add("blankSquare");
@@ -233,7 +239,6 @@ function showAnswerContent() {
 //----------------------------------------------------------------
 
 function generateSwitches() {
-
   let innerContainer = document.createElement("div");
   innerContainer.classList.add("inner-container");
   outerContainer.appendChild(innerContainer);
@@ -253,9 +258,8 @@ function generateSwitches() {
   });
 
   let paragraph = document.createElement("p");
-  paragraph.textContent = "List of possible numbers";
+  paragraph.textContent = "Interactive list of possible numbers";
   innerContainer.appendChild(paragraph);
-
 }
 
 //----------------------------------------------------------------
@@ -263,7 +267,6 @@ function generateSwitches() {
 //----------------------------------------------------------------
 
 function generateUserAnswer() {
-
   let innerContainer = document.createElement("div");
   innerContainer.classList.add("inner-container");
   outerContainer.appendChild(innerContainer);
@@ -281,17 +284,16 @@ function generateUserAnswer() {
     buttonContainer.appendChild(button);
     button.addEventListener("click", handleCycleButtonClick);
   });
-  
+
   let paragraph = document.createElement("p");
   paragraph.textContent = "Your answer";
   innerContainer.appendChild(paragraph);
-  
+
   let submit = document.createElement("button");
   submit.classList.add("submitButton");
   submit.textContent = "Submit";
   innerContainer.appendChild(submit);
   submit.addEventListener("click", handleSubmitButtonClick);
-  
 }
 
 //----------------------------------------------------------------
@@ -299,12 +301,15 @@ function generateUserAnswer() {
 //----------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
-    
   //----------------------------------------------------------------
   // Section to Generate Answer and All Clues
   //----------------------------------------------------------------
 
-  updateDictionaryArray(dictionaryArray);
+  generateSwitches();
+
+  const shuffledArray = dictionaryArray.sort(() => Math.random() - 0.5);
+
+  updateDictionaryArray(shuffledArray);
 
   //----------------------------------------------------------------
   // Section for HTML Rendering
@@ -331,12 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", handleButtonClick);
     });
   });
-  
-  
+
   document.body.appendChild(outerContainer);
-  generateSwitches();
   generateUserAnswer();
-  
 });
 
 //----------------------------------------------------------------
