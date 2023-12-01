@@ -13,7 +13,7 @@ pre {
 .outer-container {
   display: flex;
   flex-direction: column; /* Arrange items vertically */
-  gap: 20px; /* Adjust the vertical space between containers */
+  gap: 8px; /* Adjust the vertical space between containers */
   padding: 12px 28px 0px 28px; /* Top, Right, Bottom, Left */
   font-size: var(--default-font-size);
   font-weight: var(--default-font-weight);
@@ -24,7 +24,7 @@ pre {
 .pre-container {
   display: flex;
   flex-direction: column; /* Arrange items vertically */
-  padding: 12px 28px 0px 28px; /* Top, Right, Bottom, Left */
+  padding: 0px 28px 0px 28px; /* Top, Right, Bottom, Left */
   font-size: var(--default-font-size);
   font-weight: var(--default-font-weight);
   font-family: var(--default-font-family);
@@ -58,7 +58,6 @@ pre {
   height: 50px;
   border: none;
   margin-right: 14px; /* Adjust spacing between buttons */
-/*   margin-left: 7px; /* Adjust spacing between buttons */ */
   background-color: transparent;
 /*   outline: 3px solid grey; */
 }
@@ -73,7 +72,6 @@ pre {
   border: none;
   cursor: pointer;
   margin-right: 14px; /* Adjust spacing between buttons */
-/*   margin-left: 7px; /* Adjust spacing between buttons */ */
   background-color: transparent;
   outline: 3px solid grey;
 }
