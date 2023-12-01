@@ -100,11 +100,25 @@ function handleButtonClick(event) {
 
 // Function to change button color when handleButtonClick function called
 function changeColor(button) {
-  const colors = ["transparent", "cyan", "orange", "pink"];
+  const colors = ["transparent", "brown", "forestgreen", "darkcyan", "orange"];
   const currentBgColor = button.style.backgroundColor || "transparent";
   let currentState = colors.indexOf(currentBgColor);
   button.style.backgroundColor = colors[(currentState + 1) % colors.length];
 }
+
+// Function to handle button click event and run changeColor function
+function handleCycleButtonClick(event) {
+  const buttonClicked = event.target;
+  const buttonValue = buttonClicked.textContent;
+  console.log(`Button ${buttonValue} clicked`);
+  changeCycle(buttonClicked);
+}
+
+function changeCycle(button) {
+    let currentNumber = parseInt(button.textContent); // Get the current number from the button
+    currentNumber = (currentNumber + 1) % 10; // Increment the number by 1 and ensure it cycles from 0 to 9
+    button.textContent = currentNumber; // Update the button text with the new number
+};
 
 //--------------------------------------------------
 // Section to Handle Answer and Clue Generation
@@ -176,14 +190,19 @@ function updateDictionaryArray(dictionaryArray) {
 //----------------------------------------------------------------
 
 // Variable to store whether the spacebar was pressed
-let spacebarPressed = false;
+let submitPressed = false;
 
-// Function to handle keydown events
-function handleKeyPress(event) {
-  if (event.code === "Space" && !spacebarPressed) {
-    spacebarPressed = true;
-    showAnswerContent();
+// Function to handle pressing submit button
+function submit() {
+  if (!submitPressed) {
+    submitPressed = true;
+    showAnswerContent(); // Replace this with the function you want to execute on submit
   }
+}
+
+// Function to handle button click event
+function handleSubmitButtonClick(event) {
+  submit();
 }
 
 // Function to display the answer content
@@ -205,8 +224,74 @@ function showAnswerContent() {
   }
 
   const paragraph = document.createElement("p");
-  paragraph.textContent = "The answer";
+  paragraph.textContent = "Correct answer";
   innerContainer.appendChild(paragraph);
+}
+
+//----------------------------------------------------------------
+// Generate the Switches for the Numbers 0-9
+//----------------------------------------------------------------
+
+function generateSwitches() {
+
+  let innerContainer = document.createElement("div");
+  innerContainer.classList.add("inner-container");
+  outerContainer.appendChild(innerContainer);
+
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container");
+  innerContainer.appendChild(buttonContainer);
+
+  let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  numbers.forEach((x) => {
+    const button = document.createElement("button");
+    button.classList.add("colorButton");
+    button.textContent = x;
+    buttonContainer.appendChild(button);
+    button.addEventListener("click", handleButtonClick);
+  });
+
+  let paragraph = document.createElement("p");
+  paragraph.textContent = "List of possible numbers";
+  innerContainer.appendChild(paragraph);
+
+}
+
+//----------------------------------------------------------------
+// Generate User Answer Boxes
+//----------------------------------------------------------------
+
+function generateUserAnswer() {
+
+  let innerContainer = document.createElement("div");
+  innerContainer.classList.add("inner-container");
+  outerContainer.appendChild(innerContainer);
+
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container");
+  innerContainer.appendChild(buttonContainer);
+
+  let numbers = [0, 0, 0, 0];
+
+  numbers.forEach((x) => {
+    const button = document.createElement("button");
+    button.classList.add("colorButton");
+    button.textContent = x;
+    buttonContainer.appendChild(button);
+    button.addEventListener("click", handleCycleButtonClick);
+  });
+  
+  let paragraph = document.createElement("p");
+  paragraph.textContent = "Your answer";
+  innerContainer.appendChild(paragraph);
+  
+  let submit = document.createElement("button");
+  submit.classList.add("submitButton");
+  submit.textContent = "Submit";
+  innerContainer.appendChild(submit);
+  submit.addEventListener("click", handleSubmitButtonClick);
+  
 }
 
 //----------------------------------------------------------------
@@ -214,7 +299,7 @@ function showAnswerContent() {
 //----------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
-  
+    
   //----------------------------------------------------------------
   // Section to Generate Answer and All Clues
   //----------------------------------------------------------------
@@ -240,14 +325,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     output.forEach((digit) => {
       const button = document.createElement("button");
-      button.classList.add("colorButton", "white");
+      button.classList.add("colorButton");
       button.textContent = digit;
       buttonContainer.appendChild(button);
       button.addEventListener("click", handleButtonClick);
     });
   });
   
+  
   document.body.appendChild(outerContainer);
+  generateSwitches();
+  generateUserAnswer();
   
 });
 
@@ -256,4 +344,4 @@ document.addEventListener("DOMContentLoaded", function () {
 //----------------------------------------------------------------
 
 // Event listener to check for keydown events
-document.addEventListener("keydown", handleKeyPress);
+// document.addEventListener("keydown", handleKeyPress);
